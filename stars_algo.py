@@ -53,7 +53,7 @@ def stars_mean(X, xcol, date_col, p_val = .05, cut_len = 10):
     back_stepping = False				
     step_cnt = 0
 
-# Loop through each observation beyond burn-in period
+    # Loop through each observation beyond burn-in period
     for i in range(cut_len, n):
         shft_found = False			    # begin by assuming not at shift point
         deviation = x.iat[i] - xbar     # deviation for this observation
