@@ -49,13 +49,13 @@ def stars_mean(X, xcol, date_col, p_val = .05, cut_len = 10):
     shft_points = pd.Series([])
     shft_rsi = pd.Series([])
 
-    xbar = x[0:cut_len].mean()			# start calculation of moving average
+    xbar = x[0:cut_len].mean()          # start calculation of moving average
     back_stepping = False				
     step_cnt = 0
 
     # Loop through each observation beyond burn-in period
     for i in range(cut_len, n):
-        shft_found = False			    # begin by assuming not at shift point
+        shft_found = False              # begin by assuming not at shift point
         deviation = x.iat[i] - xbar     # deviation for this observation
 
         # Determine if we're potentially in regime shift
@@ -68,7 +68,7 @@ def stars_mean(X, xcol, date_col, p_val = .05, cut_len = 10):
 
             # if RSI stays positive, shift was found, begin new regime
             if not any(rsi < 0 ):
-                shft_points[i] = X[date_col].iloc[i]	# save shift date
+                shft_points[i] = X[date_col].iloc[i]    # save shift date
                 shft_rsi[i] = rsi.iat[(len(rsi)-1)]		# save RSI value
 
                 xbar = x.iloc[i:n_obs].mean()			# new regime's mean
