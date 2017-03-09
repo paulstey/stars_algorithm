@@ -1,1 +1,1 @@
-# stars_algorithm
+# STARS Algorithm
