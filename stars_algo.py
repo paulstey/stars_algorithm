@@ -8,7 +8,7 @@ import numpy as np
 from scipy.stats import t
 
 
-## quick helper function that returns the sign (or zero)
+# Quick helper function that returns the sign (or zero)
 def sign(x):
     if x > 0:
         result = 1
@@ -90,5 +90,3 @@ def stars_mean(X, xcol, date_col, p_val = .05, cut_len = 10):
     # Bind output into dataframe
     result = pd.concat([shft_points, shft_rsi], axis = 1)
     return result
-
-
